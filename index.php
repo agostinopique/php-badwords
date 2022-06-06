@@ -1,11 +1,14 @@
 <?php
 $loremParagraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores libero ut debitis minima expedita. Veritatis, reiciendis quibusdam quae fugit consequuntur labore ullam hic inventore itaque eveniet illum, reprehenderit, soluta suscipit!";
 
-// $trimmedParagraph = trim($loremParagraph, " ");
-// $paragraphLength = strlen($trimmedParagraph);
-$paragraphLength = strlen($loremParagraph);
+$noSpaceParagraph = str_replace(" ", "", $loremParagraph);
+$paragraphLength = strlen($noSpaceParagraph);
+// $paragraphLength = strlen($loremParagraph);
+
 $censoredParagraph = str_ireplace($_GET["badword"], "***", $loremParagraph);
-$censParaLength = strlen($censoredParagraph);
+$censNoSpaceLength = str_replace(" ", "", $censoredParagraph);
+$censParaLength = strlen($censNoSpaceLength);
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +21,7 @@ $censParaLength = strlen($censoredParagraph);
 </head>
 <body>
     <h1>Badwords</h1>
-    
+
     <p><?php echo $loremParagraph ?></p>
     <p>Il paragrafo é lungo <?php echo $paragraphLength?> caratteri.</p>
 
