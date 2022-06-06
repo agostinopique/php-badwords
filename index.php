@@ -1,10 +1,13 @@
 <?php
 $loremParagraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores libero ut debitis minima expedita. Veritatis, reiciendis quibusdam quae fugit consequuntur labore ullam hic inventore itaque eveniet illum, reprehenderit, soluta suscipit!";
 
-$paragraphLength = strlen(trim($loremParagraph));
-
+// $trimmedParagraph = trim($loremParagraph, " ");
+// $paragraphLength = strlen($trimmedParagraph);
+$paragraphLength = strlen($loremParagraph);
+$censoredParagraph = str_ireplace($_GET["badword"], "***", $loremParagraph);
+$censParaLength = strlen($censoredParagraph);
 ?>
-<!-- Aggiunto paragrafo e conteggio dei caratteri; -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +18,11 @@ $paragraphLength = strlen(trim($loremParagraph));
 </head>
 <body>
     <h1>Badwords</h1>
+    
     <p><?php echo $loremParagraph ?></p>
     <p>Il paragrafo é lungo <?php echo $paragraphLength?> caratteri.</p>
+
+    <p><?php echo $censoredParagraph ?></p>
+    <p>Il paragrafo é lungo <?php echo $censParaLength?> caratteri.</p>
 </body>
 </html>
