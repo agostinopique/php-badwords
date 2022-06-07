@@ -11,6 +11,7 @@ $censNoSpaceLength = str_replace(" ", "", $censoredParagraph);
 // CONTEGGIO DEI CARATTERI AGGIUNTO DIRETTAMENTE IN HTML
 // $censParaLength = strlen($censNoSpaceLength);
 
+echo (substr_count($loremParagraph, $_GET["badword"]) * 3);
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +35,6 @@ $censNoSpaceLength = str_replace(" ", "", $censoredParagraph);
     <h2>Questo é il paragrafo censurato:</h2>
     
     <p><?php echo $censoredParagraph ?></p>
-    <p>Il paragrafo é lungo <?php echo strlen($censNoSpaceLength)?> caratteri.</p>
+    <p>Il paragrafo é lungo <?php echo strlen($noSpaceParagraph) - (substr_count($loremParagraph, $_GET["badword"]) * 3)?> caratteri.</p>
 </body>
 </html>
